@@ -1,0 +1,30 @@
+name: "SYNC: dependencies with main"
+
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PUBLISH_TOKEN }}
+          ref: dependencies
+
+      - name: fetch
+        run: git fetch
+
+      - name: merge main
+        run: git merge origin/main -m "Sync main to dependencies [skip-CI]"
+
+      - name: push into dependencies
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git push origin dependencies

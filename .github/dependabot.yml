@@ -1,0 +1,14 @@
+
+version: 2
+updates:
+  - package-ecosystem: "cargo"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "nerjs"
+    labels:
+      - "dependencies"
+      - "bot"
+    target-branch: "dependencies"
+    open-pull-requests-limit: 5
