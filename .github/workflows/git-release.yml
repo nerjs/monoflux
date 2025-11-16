@@ -60,7 +60,7 @@ jobs:
         run: git tag -a "${{ steps.tags.outputs.tag }}" -m "${{ steps.tags.outputs.tag }}"
         
       - name: Push latest version
-        run: git push origin main --follow-tags
+        run: git push origin master --follow-tags
         
         
   create-github-release:

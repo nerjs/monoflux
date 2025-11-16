@@ -4,7 +4,7 @@ name: "SYNC: dependencies with main"
 on:
   push:
     branches:
-      - main
+      - master
       
 jobs:
   sync:
